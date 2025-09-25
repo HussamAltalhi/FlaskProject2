@@ -1,45 +1,246 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Name and Salary Form</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Hussam Altalhi — CV</title>
+  <style>
+    :root {
+      --bg: #f7f7f9;
+      --fg: #0f172a;
+      --muted: #475569;
+      --accent: #2563eb;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 16px; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--fg);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+    .container {
+      max-width: 940px;
+      margin: 32px auto;
+      padding: 0 16px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: clamp(18px, 2.2vw + 10px, 28px);
+      box-shadow: var(--shadow);
+    }
+
+    header > *{
+      margin: 0 0 6px 0;
+      font-size: clamp(1.4rem, 1rem + 2.2vw, 2rem);
+        text-align:center ;
+    }
+    header .subtitle  {
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-size: clamp(0.95rem, 0.85rem + 0.5vw, 1rem);
+        text-align: center;
+    }
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin-top: 8px;
+      font-size: clamp(0.9rem, 0.8rem + 0.4vw, 0.95rem);
+    }
+    .contact a, .contact span { color: var(--fg); text-decoration: none; }
+    .contact a:hover { color: var(--accent); text-decoration: underline; }
+
+    hr.sep {
+      border: 0;
+      border-top: 1px solid var(--border);
+      margin: clamp(14px, 2vw, 22px) 0;
+    }
+
+    section { margin-bottom: clamp(14px, 2vw, 20px); }
+    section h2 {
+      font-size: clamp(1rem, 0.9rem + 0.6vw, 1.1rem);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--accent);
+      margin: 0 0 10px 0;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 24px;
+    }
+    .item { padding: 6px 0; }
+    .item h3 { margin: 0 0 4px 0; font-size: clamp(0.98rem, 0.9rem + 0.4vw, 1rem); }
+    .muted { color: var(--muted); }
+    ul { margin: 8px 0 0 18px; padding: 0; }
+    li { margin: 4px 0; }
+    .taglist { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .tag {
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: clamp(0.85rem, 0.8rem + 0.3vw, 0.9rem);
+    }
+    .small { font-size: clamp(0.92rem, 0.86rem + 0.3vw, 0.95rem); }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 780px) {
+      .container { margin: 20px auto; padding: 0 12px; }
+      .card { padding: 16px; border-radius: 12px; }
+      .grid-2 { grid-template-columns: 1fr; gap: 10px; }
+      .contact { gap: 6px 12px; }
+    }
+    @media (max-width: 380px) {
+      html { font-size: 15px; }
+      .tag { padding: 3px 8px; }
+    }
+    @media print {
+      body { background: #fff; }
+      .container { max-width: 100%; margin: 0; padding: 0; }
+      .card { border: none; box-shadow: none; border-radius: 0; padding: 0.5in; }
+      header, section { break-inside: avoid; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
 </head>
-<body class="bg-light">
-
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h3 class="card-title mb-4 text-center">Employee Form</h3>
-          <form>
-            <!-- Name input -->
-            <div class="mb-3">
-              <label for="name" class="form-label">Name:</label>
-              <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
-            </div>
-
-            <!-- Salary input -->
-            <div class="mb-3">
-              <label for="salary" class="form-label">Salary:</label>
-              <input type="number" class="form-control" id="salary" placeholder="Enter your salary" required>
-            </div>
-
-            <!-- Submit button -->
-            <div class="d-grid">
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-          </form>
+<body>
+  <div class="container ">
+    <div class="card text-center">
+      <header class="text-center">
+        <h1>Hussam Altalhi</h1>
+        <div class="subtitle">Developer • Riyadh, Kingdom of Saudi Arabia</div>
+        <div class="contact small text-center bg-danger">
+          <span>📍 Riyadh, KSA</span>
+          <a href="tel:+966555127673">📞 0555127673</a>
+          <a href="mailto:Hussam10@gmail.com">✉️ Hussam10@gmail.com</a>
         </div>
-      </div>
+      </header>
+
+      <hr class="sep">
+
+      <section id="profile">
+        <h2>Profile</h2>
+        <p class="small">
+          Developer with 7+ years of experience handling technical projects—requirements analysis, low-level design (LLD), high-level design (HLD), and database design—plus front-end and back-end development with ASP.NET. Experienced with databases and reporting using Microsoft Excel and Power BI, and delivering training courses for developers.
+        </p>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <div class="item">
+          <h3>Master’s Degree in Computer Science</h3>
+          <div class="muted small">King Saud University • Second semester 2021 • GPA: 4.58/5.00 • Grade: Excellent</div>
+        </div>
+        <div class="item">
+          <h3>Bachelor’s Degree in Computer Science</h3>
+          <div class="muted small">Al Maarefa University • First Semester 2016/2017 • GPA: 3.80/4.00 • Grade: “Excellent” with First Class Honor</div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="item">
+          <h3>Developer — General Court of Audit (GCA)</h3>
+          <div class="muted small">Sep 2, 2018 — Present</div>
+        </div>
+        <div class="item">
+          <h3>Trainer &amp; Supervisor — National Academy of Higher Training (NAHT)</h3>
+          <div class="muted small">Dec 4, 2017 — Aug 28, 2018</div>
+        </div>
+      </section>
+
+      <section id="certifications">
+        <h2>Professional Certificates</h2>
+        <div class="grid-2 small">
+          <ul>
+            <li>Project Management Professional (PMP®)</li>
+            <li>Power BI Data Analyst Associate (PL-300®)</li>
+            <li>Microsoft Office Specialist: Associate (Office 365 &amp; 2019) (MOS®)</li>
+            <li>Entry Certificate in Business Analysis™ (ECBA™)</li>
+            <li>ITIL® 4 Foundation in IT Service Management</li>
+            <li>Professional Scrum Master I (PSM™ I)</li>
+            <li>Professional Scrum Master II (PSM™ II)</li>
+            <li>Professional Agile Leadership I (PAL I®)</li>
+          </ul>
+          <ul>
+            <li>Professional Scrum with Kanban I (PSK™)</li>
+            <li>Scaled Professional Scrum (SPS™)</li>
+            <li>Professional Scrum Product Owner (PSPO™ I)</li>
+            <li>Professional Scrum Product Owner (PSPO™ II)</li>
+            <li>Professional Scrum Developer™ (PSD™ I)</li>
+            <li>Microsoft Azure Fundamentals (AZ-900)</li>
+            <li>Microsoft Azure Data Fundamentals (DP-900)</li>
+            <li>Microsoft Azure AI Fundamentals (AI-900)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="tasks">
+        <h2>Key Tasks &amp; Responsibilities</h2>
+        <ul class="small">
+          <li>Create and manage projects using ASP.NET Web Forms and ASP.NET Razor Pages.</li>
+          <li>Database management using SQL Server Management Studio and MySQL.</li>
+          <li>Deliver technical training from office applications to programming languages.</li>
+          <li>Supervise cooperative training for university students (focus on programming).</li>
+        </ul>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="item">
+          <h3>Programming &amp; Scripting</h3>
+          <div class="taglist">
+            <span class="tag">PHP</span>
+            <span class="tag">C++</span>
+            <span class="tag">C#</span>
+            <span class="tag">VB.NET</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+        <div class="item">
+          <h3>Frameworks</h3>
+          <div class="taglist">
+            <span class="tag">ASP.NET Web Forms</span>
+            <span class="tag">ASP.NET Razor Pages</span>
+            <span class="tag">Bootstrap</span>
+          </div>
+        </div>
+        <div class="item">
+          <h3>Tools</h3>
+          <div class="taglist">
+            <span class="tag">Microsoft Visual Studio</span>
+            <span class="tag">VS Code</span>
+            <span class="tag">PyCharm</span>
+            <span class="tag">SQL Server</span>
+            <span class="tag">MySQL</span>
+          </div>
+        </div>
+        <div class="item">
+          <h3>Data Analysis</h3>
+          <div class="taglist">
+            <span class="tag">Power BI</span>
+            <span class="tag">Microsoft Excel</span>
+          </div>
+        </div>
+      </section>
+
+      <hr class="sep">
+      <footer class="small muted">
+        Last updated from provided source document.
+      </footer>
     </div>
   </div>
-</div>
-
-<!-- Bootstrap JS (optional for form functionality) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
